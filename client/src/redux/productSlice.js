@@ -10,9 +10,9 @@ const initialState = {
 }
 export const fetchProducts = createAsyncThunk(
     "products/fetchProducts",
-    async (url) => {
+    async () => {
       try {
-        const response = await axios.get(url)
+        const response = await axios.get('http://localhost:3000/api/products/')
         return response.data; 
       } catch (error) {
         return error.message
@@ -38,7 +38,7 @@ export const fetchProducts = createAsyncThunk(
     "products/updateProduct",
     async ({ id, updatedProduct }) => {
       try {
-        
+
         const response = await axios.put(`http://localhost:3000/api/products/${id}`, updatedProduct)
         return response.data
       } catch (error) {

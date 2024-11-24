@@ -100,9 +100,10 @@ const handleModalClose = () => {
 
   useEffect(() => {
 
-    dispatch(fetchProducts('http://localhost:3000/api/products/'))
+    dispatch(fetchProducts())
 
 
+    // La partie du socket.io mais en commentaires
 
     // socket.on('productAdded', (newProduct) => {
     //   dispatch({ type: 'products/addProduct', payload: newProduct })
@@ -121,6 +122,7 @@ const handleModalClose = () => {
     //   socket.off('productUpdated')
     //   socket.off('productDeleted')
     // }
+    
 }, [dispatch])
 
 
@@ -472,7 +474,7 @@ const handleModalClose = () => {
         </form>
       </Box>
     </Modal>
-    
+
 
     <Modal open={showdeleteModal} onClose={handleModalDeleteClose} aria-labelledby="delete-modal-title">
       <Box sx={modalStyle}>
